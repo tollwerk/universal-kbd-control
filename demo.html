@@ -2,22 +2,31 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Universal Keyboard Control — Demo page</title>
+        <title>Gyro Control — Demo page</title>
         <link href="demo.css" rel="stylesheet"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <main>
-            <h1>Universal Keyboard Control</h1>
-            <p>Diese Demoseite dient dazu, die universelle Tastatursteuerung zu demonstrieren. Die Seite enthält <a
-                href="#">einige unsinnige Links</a>, <a href="#form">Formularelemente</a>, Hauptsache interaktive
-                Elemente,
-                die fokussiert werden können. Am unteren Seitenrand wird ein Schalter eingeblendet eingeblendet. Durch
-                Klick
-                wird zu Demonstrationszwecken die gyroskopische Steuerung aktiviert (ein zweiter Klick deaktiviert die
-                Steuerung wieder). Solange die gyroskopische Steuerung aktiv ist, wird durch Rechts- bzw.
-                Links-Schüttelbewegungen das Drücken der <kbd>TAB</kbd>-Taste simuliert. Der sichtbare Fokus auf der
-                Seite
-                wird zwischen den interaktiven Elementen verschoben.</p>
+            <h1>Gyro Control</h1>
+            <p>Diese Demoseite dient dazu, die Funktion des in viele Geräte eingebauten <strong>Gyroskops</strong>
+                (Lagesensor) zu
+                demonstrieren. Wenn dieses Gerät grundsätzlich über ein Gyroskop verfügt und die Gyroskop-API
+                unterstützt, dann wird am unteren Seitenrand ein Schalter eingeblendet. Durch
+                Klick wird zu Demonstrationszwecken die gyroskopische Überwachung aktiviert (ein zweiter Klick deaktiviert
+                die Überwachung wieder). Solange die Gyroskop-Überwachung aktiv ist, werden die Lagesensorwerte 10 Mal pro
+                Sekunde abgelesen und dargestellt.</p>
+            <form>
+                <label>Gyroskop X
+                    <input name="x" id="x" value="">
+                </label>
+                <label>Gyroskop Y
+                    <input name="y" id="y" value="">
+                </label>
+                <label>Gyroskop Z
+                    <input name="z" id="z" value="">
+                </label>
+            </form>
         </main>
         <script src="universal-keyboard-control.js"></script>
     </body>

@@ -10,6 +10,10 @@ main {
     max-width: 48rem;
 }
 
+label {
+    display: block;
+}
+
 .ukbdc-bar {
     position: fixed;
     bottom: 0;
@@ -21,6 +25,11 @@ main {
 }
 
 .ukbdc-btn {
+    font: 1rem Arial, Helvetica, sans-serif;
+    display: inline-block;
+    width: 12rem;
+    height: 6rem;
+    border-radius: 1rem;
     padding: 1rem;
     border: 1px solid #000;
     background-color: #fff;
