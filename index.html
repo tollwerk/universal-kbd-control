@@ -8,26 +8,46 @@
     </head>
     <body>
         <main>
-            <h1>Gyro Control</h1>
-            <p>Diese Demoseite dient dazu, die Funktion des in viele Geräte eingebauten <strong>Gyroskops</strong>
-                (Lagesensor) zu
-                demonstrieren. Wenn dieses Gerät grundsätzlich über ein Gyroskop verfügt und die Gyroskop-API
-                unterstützt, dann wird am unteren Seitenrand ein Schalter eingeblendet. Durch
-                Klick wird zu Demonstrationszwecken die gyroskopische Überwachung aktiviert (ein zweiter Klick deaktiviert
-                die Überwachung wieder). Solange die Gyroskop-Überwachung aktiv ist, werden die Lagesensorwerte 10 Mal pro
-                Sekunde abgelesen und dargestellt.</p>
-            <form>
-                <label>Gyroskop X
-                    <input name="x" id="x" value="">
-                </label>
-                <label>Gyroskop Y
-                    <input name="y" id="y" value="">
-                </label>
-                <label>Gyroskop Z
-                    <input name="z" id="z" value="">
-                </label>
-            </form>
+            <ul class="keypad">
+                <li>
+                    <button autofocus>1</button>
+                </li>
+                <li>
+                    <button>2</button>
+                </li>
+                <li>
+                    <button>3</button>
+                </li>
+                <li>
+                    <button>4</button>
+                </li>
+                <li>
+                    <button>5</button>
+                </li>
+                <li>
+                    <button>6</button>
+                </li>
+                <li>
+                    <button>7</button>
+                </li>
+                <li>
+                    <button>8</button>
+                </li>
+                <li>
+                    <button>9</button>
+                </li>
+                <li>
+                    <button>*</button>
+                </li>
+                <li>
+                    <button>0</button>
+                </li>
+                <li>
+                    <button>#</button>
+                </li>
+            </ul>
+            <!--            <p id="keystroke">—</p>-->
         </main>
-        <script src="universal-keyboard-control.js"></script>
+        <script src="jubista.js"></script>
     </body>
 </html>
