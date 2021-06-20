@@ -70,7 +70,7 @@ function resetPosition(element) {
     // Create the 3D representation
     init3D();
 
-    const buttons = Array.from(d.querySelectorAll('button'));
+    const buttons = Array.from(d.querySelectorAll('.keypad button'));
     const num = buttons.length - 1;
     let currentButton = 0;
 
@@ -97,7 +97,7 @@ function resetPosition(element) {
 
             const full = 5;
             const rad = Math.round(((num * (obj.gyroZ / full) % num) + num) % num);
-            console.log(rad);
+            // console.log(rad);
             if (rad !== currentButton) {
                 buttons[rad].focus();
                 currentButton = rad;
