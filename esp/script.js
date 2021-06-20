@@ -6,6 +6,13 @@
   The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+function resetPosition(element) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/" + element.id, true);
+    // console.log(element.id);
+    xhr.send();
+}
+
 (function (w, d) {
     let scene, camera, rendered, cube;
 
@@ -88,7 +95,8 @@
             d.getElementById("gyroZ").innerHTML = obj.gyroZ;
 
             const full = 5;
-            const rad = Math.round(buttons.length * ((obj.gyroZ % full) / full));
+            const gyroZ = obj.gyroZ + full;
+            const rad = buttons.length - 1 - Math.round((buttons.length - 1) * ((gyroZ % full) / full));
             if (rad !== currentButton) {
                 buttons[rad].focus();
                 currentButton = rad;
@@ -113,12 +121,5 @@
             d.getElementById("accY").innerHTML = obj.accY;
             d.getElementById("accZ").innerHTML = obj.accZ;
         }, false);
-    }
-
-    function resetPosition(element) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "/" + element.id, true);
-        // console.log(element.id);
-        xhr.send();
     }
 })(window, document)
