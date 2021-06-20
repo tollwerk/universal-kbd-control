@@ -71,6 +71,7 @@ function resetPosition(element) {
     init3D();
 
     const buttons = Array.from(d.querySelectorAll('button'));
+    const num = buttons.length - 1;
     let currentButton = 0;
 
     // Create events for the sensor readings
@@ -95,8 +96,8 @@ function resetPosition(element) {
             d.getElementById("gyroZ").innerHTML = obj.gyroZ;
 
             const full = 5;
-            const gyroZ = obj.gyroZ + full;
-            const rad = buttons.length - 1 - Math.round((buttons.length - 1) * ((gyroZ % full) / full));
+            const rad = Math.round(((num * (obj.gyroZ / full) % num) + num) % num);
+            console.log(rad);
             if (rad !== currentButton) {
                 buttons[rad].focus();
                 currentButton = rad;
