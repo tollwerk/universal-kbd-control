@@ -64,30 +64,35 @@
     init3D();
 
     const buttons = Array.from(d.querySelectorAll('button'));
+    let currentButton = 0;
 
     // Create events for the sensor readings
     if (!!w.EventSource) {
         let source = new EventSource('/events');
 
         source.addEventListener('open', function (e) {
-            console.log("Events Connected");
+            // console.log("Events Connected");
         }, false);
 
         source.addEventListener('error', function (e) {
             if (e.target.readyState != EventSource.OPEN) {
-                console.log("Events Disconnected");
+                // console.log("Events Disconnected");
             }
         }, false);
 
         source.addEventListener('gyro_readings', function (e) {
-            //console.log("gyro_readings", e.data);
+            //// console.log("gyro_readings", e.data);
             const obj = JSON.parse(e.data);
             d.getElementById("gyroX").innerHTML = obj.gyroX;
             d.getElementById("gyroY").innerHTML = obj.gyroY;
             d.getElementById("gyroZ").innerHTML = obj.gyroZ;
 
-            const rad = (obj.gyroZ % (Math.PI * 2)) / (Math.PI * 2);
-            console.log(rad);
+            const full = 5;
+            const rad = Math.round(buttons.length * ((obj.gyroZ % full) / full));
+            if (rad !== currentButton) {
+                buttons[rad].focus();
+                currentButton = rad;
+            }
 
             // Change cube rotation after receiving the readinds
             cube.rotation.x = obj.gyroY;
@@ -97,12 +102,12 @@
         }, false);
 
         source.addEventListener('temperature_reading', function (e) {
-            console.log("temperature_reading", e.data);
+            // console.log("temperature_reading", e.data);
             d.getElementById("temp").innerHTML = e.data;
         }, false);
 
         source.addEventListener('accelerometer_readings', function (e) {
-            console.log("accelerometer_readings", e.data);
+            // console.log("accelerometer_readings", e.data);
             var obj = JSON.parse(e.data);
             d.getElementById("accX").innerHTML = obj.accX;
             d.getElementById("accY").innerHTML = obj.accY;
@@ -113,7 +118,7 @@
     function resetPosition(element) {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "/" + element.id, true);
-        console.log(element.id);
+        // console.log(element.id);
         xhr.send();
     }
 })(window, document)
