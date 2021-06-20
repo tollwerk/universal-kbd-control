@@ -1,0 +1,167 @@
+/*
+  Rui Santos
+  Complete project details at https://RandomNerdTutorials.com/esp32-mpu-6050-web-server/
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files.
+  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
+
+html {
+    font-family: Arial;
+    display: inline-block;
+    text-align: center;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+body {
+    margin: 0;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #023E8A;
+    color: #FFD43B;
+    font-size: 1rem;
+}
+
+.content {
+}
+
+.card {
+    background-color: white;
+    box-shadow: 2px 2px 12px 1px rgba(140, 140, 140, .5);
+    padding: .5em 0;
+}
+
+.card + .card {
+    margin-top: 1em;
+}
+
+.card-title {
+    color: #023E8A;
+    font-weight: bold;
+}
+
+.cards {
+    margin: 0 auto;
+}
+
+.invisible {
+    display: none;
+}
+
+.reading {
+    font-size: 1.2rem;
+}
+
+.cube-content {
+    width: 100%;
+    background-color: white;
+    height: 300px;
+    margin: auto;
+    padding-top: 2%;
+}
+
+#reset {
+    border: none;
+    color: #FEFCFB;
+    background-color: #023E8A;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    width: 150px;
+    border-radius: 4px;
+}
+
+#resetX, #resetY, #resetZ {
+    border: none;
+    color: #FEFCFB;
+    background-color: #023E8A;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    width: 20px;
+    border-radius: 4px;
+}
+
+main {
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
+}
+
+main > div {
+    flex-basis: 48%;
+
+}
+
+.keypad {
+    list-style-type: none;
+    /*list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");*/
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+.keypad li {
+    aspect-ratio: 1;
+}
+
+.keypad button {
+    width: 100%;
+    height: 100%;
+    font-size: 10vw;
+    border: none;
+}
+
+.keypad button:focus {
+    outline: 3px solid #000;
+    color: #fff;
+    background-color: #023E8A;
+}
+
+.keypad li::before {
+    content: "\200B"; /* add zero-width space */
+    position: absolute;
+}
+
+.ukbdc-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .3);
+    padding: 1rem;
+}
+
+.ukbdc-btn {
+    font: 1rem Arial, Helvetica, sans-serif;
+    display: inline-block;
+    width: 12rem;
+    height: 6rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid #000;
+    background-color: #fff;
+}
+
+.ukbdc-btn:focus {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+.ukbdc-btn[aria-pressed=true] {
+    color: #fff;
+    background-color: #000;
+}
